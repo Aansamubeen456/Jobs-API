@@ -25,6 +25,10 @@ const jobsRouter = require("./routes/jobs");
 const connectDB = require("./db/connect");
 const authenticateUser = require("./middleware/authentication");
 
+app.get("/", (req, res) => {
+  res.send("jobs api");
+});
+
 // routes
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/jobs", authenticateUser, jobsRouter);
