@@ -30,12 +30,8 @@ app.get("/", (req, res) => {
 });
 
 // routes
-app.use("jobs-api-project-9ehk.onrender.com/api/v1/auth", authRouter);
-app.use(
-  "jobs-api-project-9ehk.onrender.com/api/v1/jobs",
-  authenticateUser,
-  jobsRouter
-);
+app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/jobs", authenticateUser, jobsRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
