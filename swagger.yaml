@@ -17,7 +17,7 @@ paths:
       requestBody:
         description: ""
         content:
-          text/plain:
+          application/json:
             schema:
               type: object
               example: {}
