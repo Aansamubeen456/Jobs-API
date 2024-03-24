@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Jobs API
+  title: JOBS API
   contact: {}
   version: "1.0"
 servers:
@@ -19,9 +19,16 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              example: {}
-            example: {}
+              allOf:
+                - $ref: "#/components/schemas/registeruserrequest"
+                - example:
+                    name: ben
+                    password: "345"
+                    email: ben@gmail.com
+            example:
+              name: ben
+              password: "345"
+              email: ben@gmail.com
         required: true
       responses:
         "200":
@@ -44,11 +51,11 @@ paths:
               allOf:
                 - $ref: "#/components/schemas/LoginUserRequest"
                 - example:
-                    password: "12345"
-                    email: enna@gmail.com
+                    password: "345"
+                    email: ben@gmail.com
             example:
-              password: "12345"
-              email: enna@gmail.com
+              password: "345"
+              email: ben@gmail.com
         required: true
       responses:
         "200":
@@ -104,7 +111,7 @@ paths:
         schema:
           type: string
         required: true
-        description: The job ID
+        description: The job ID.
     get:
       tags:
         - Jobs
@@ -161,6 +168,24 @@ paths:
         - bearer: []
 components:
   schemas:
+    registeruserrequest:
+      title: registeruserrequest
+      required:
+        - name
+        - password
+        - email
+      type: object
+      properties:
+        name:
+          type: string
+        password:
+          type: string
+        email:
+          type: string
+      example:
+        name: ben
+        password: "345"
+        email: ben@gmail.com
     LoginUserRequest:
       title: LoginUserRequest
       required:
@@ -173,8 +198,8 @@ components:
         email:
           type: string
       example:
-        password: "12345"
-        email: enna@gmail.com
+        password: "345"
+        email: ben@gmail.com
     CreateJobRequest:
       title: CreateJobRequest
       required:
