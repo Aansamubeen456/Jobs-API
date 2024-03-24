@@ -30,9 +30,9 @@ app.get("/", (req, res) => {
 });
 
 // routes
-app.use("https://jobs-api-project-9ehk.onrender.com/api/v1/auth", authRouter);
+app.use("jobs-api-project-9ehk.onrender.com/api/v1/auth", authRouter);
 app.use(
-  "https://jobs-api-project-9ehk.onrender.com/api/v1/jobs",
+  "jobs-api-project-9ehk.onrender.com/api/v1/jobs",
   authenticateUser,
   jobsRouter
 );
